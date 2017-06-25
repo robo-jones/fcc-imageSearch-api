@@ -9,9 +9,9 @@ const insert = async function(searchQuery, timeMade) {
         query: searchQuery,
         time: timeMade
     };
-    const db = await mongodb.connect();
-    const savedSearches = await db.collection(SAVED_SEARCHES_COLLECTION);
-    const result = await savedSearches.insert(document);
+    let db = await mongodb.connect();
+    let savedSearches = db.collection(SAVED_SEARCHES_COLLECTION);
+    let result = await savedSearches.insert(document);
     db.close();
     return { result, document };
 };

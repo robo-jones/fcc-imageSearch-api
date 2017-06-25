@@ -1,21 +1,17 @@
 'use strict';
 
-const searchApiConfig = require('../config/config.js)').googleCustomSearch;
-const http = require('http');
+const searchApiConfig = require('../config/config.js').googleCustomSearch;
+const https = require('https');
 
-const makeSearch = function(searchQuery, numResults = 10, startIndex = 0) {
-    const queryUrl = `${searchApiConfig.url}/?q=${searchQuery}
-                      &num=${numResults}
-                      &start=${startIndex}
-                      &cx=${searchApiConfig.cx}
-                      &key=${searchApiConfig.apiKey}`;
+function makeSearch(searchQuery, numResults = 10, startIndex = 1) {
+    const queryUrl = `${searchApiConfig.url}?q=${searchQuery}&num=${numResults}&start=${startIndex}&cx=${searchApiConfig.cx}&key=${searchApiConfig.apiKey}&searchType=image`;
     
     return getJson(queryUrl);
 };
 
 const getJson = function(url) {
     return new Promise((resolve, reject) => {
-        http.get(url, (res) => {
+        https.get(url, (res) => {
             const { statusCode } = res;
             
             if (statusCode !== 200) {
@@ -35,4 +31,4 @@ const getJson = function(url) {
     });
 };
 
-module.exports = makeSearch;
+module.exports = { makeSearch };
