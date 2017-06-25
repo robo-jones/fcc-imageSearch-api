@@ -1,0 +1,26 @@
+{
+  "name": "imagesearchapi",
+  "version": "1.0.0",
+  "description": "FreeCodeCamp Image Search Abstraction Layer Project",
+  "main": "server.js",
+  "engines": {
+    "node": "8.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robo-jones/fcc-imageSearch-api.git"
+  },
+  "author": "Harrison Jones",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robo-jones/fcc-imageSearch-api/issues"
+  },
+  "homepage": "https://github.com/robo-jones/fcc-imageSearch-api#readme",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
