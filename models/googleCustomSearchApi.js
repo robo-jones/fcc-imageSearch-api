@@ -1,3 +1,5 @@
+'use strict';
+
 const searchApiConfig = require('../config/config.js)').googleCustomSearch;
 const http = require('http');
 
