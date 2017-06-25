@@ -1,0 +1,75 @@
+<!doctype HTML>
+
+<head>
+    <title>Image Search Abstraction API</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h1 class="text-center">Image Search Abstraction API</h1>
+                <p><strong>User Story:</strong> I can get the image URLs, alt text and page urls for a set of images relating to a given search string.</p>
+                <p><strong>User Story:</strong> I can paginate through the responses by adding a ?offset=2 parameter to the URL.</p>
+                <p><strong>User Story:</strong> I can get a list of the most recently submitted search strings.</p>
+                <h4>Image Search API:</h4>
+                <h5>Endpoint:</h5>
+                <code>https://splendid-bit.glitch.me/api/search</code>
+                <h5>Parameters:</h5>
+                <ul>
+                    <li><strong>q:</strong> search query <strong>(required)</strong></li>
+                    <li><strong>offset:</strong> first result to return (1-indexed)</li>
+                    <li><strong>num:</strong> number of results to return (1-10)</li>
+                </ul>
+                <h4>Example usage:</h4>
+                <code>https://splendid-bit.glitch.me/api/search?q=kittens&offset=5&num=2</code>
+                <h4>Example output:</h4>
+                <pre>
+[
+    {
+        "url": "https://i.ytimg.com/vi/VO38aC2z6ck/maxresdefault.jpg",
+        "altText": "Kittens first bath! - YouTube",
+        "thumbnailUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-bn9vDOGYOjqmuZjssHpIfTCkZ7kJ2UFuBIwgpaDpN4a4GuoYNyMXwUpe",
+        "context": "https://www.youtube.com/watch?v=VO38aC2z6ck"
+    },
+    {
+        "url": "https://img.washingtonpost.com/rf/image_480w/2010-2019/WashingtonPost/2017/03/29/KidsPost/Images/fkittentrio.jpg?uuid=2pdDlhTPEeeeTwmqddPsVw",
+        "altText": "10-year-old makes room for homeless kittens - The Washington Post",
+        "thumbnailUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU0i4FFV9JHaixzpLeTWd-xwTbRWw3KZ5a3DHAXG5hnvrTsNIs-vkC2ko",
+        "context": "https://www.washingtonpost.com/lifestyle/kidspost/spring-means-lots-of-furry-roommates-for-maryland-boy/2017/04/03/17f07cde-10d5-11e7-9b0d-d27c98455440_story.html"
+    }
+]
+                </pre>
+                <br>
+                <h4>Recent Searches API:</h4>
+                <h5>Endpoint:</h5>
+                <code>https://splendid-bit.glitch.me/api/search/recent</code>
+                <h5>Parameters:</h5>
+                <ul>
+                    <li><strong>start:</strong> first result to return (0-indexed)</li>
+                    <li><strong>num:</strong> number of results to return (1+)</li>
+                </ul>
+                <h4>Example usage:</h4>
+                <code>https://splendid-bit.glitch.me/api/search/recent?num=3&start=1</code>
+                <h4>Example output:</h4>
+                <pre>
+[
+    {
+        "searchQuery": "red pandas",
+        "timeMade": "Sun, 25 Jun 2017 19:13:35 GMT"
+    },
+    {
+        "searchQuery": "puppies",
+        "timeMade": "Sun, 25 Jun 2017 19:13:00 GMT"
+    },
+    {
+        "searchQuery": "kittens",
+        "timeMade": "Sun, 25 Jun 2017 19:12:01 GMT"
+    }
+]
+                </pre>
+            </div>
+        </div>
+    </div>
+</body>
